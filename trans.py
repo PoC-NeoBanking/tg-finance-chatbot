@@ -1,12 +1,10 @@
+"""
+Моделька ЧатуGpt для чатботу(невикористовується)
+"""
+
 from transformers import pipeline
 
 from huggingface_hub import login
-
-# Введіть свій токен тут
-token = "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"
-
-# Авторизація
-login(token)
 
 # Використання моделі GPT-J через Hugging Face
 generator = pipeline('text-generation', model='EleutherAI/gpt-j-6B')

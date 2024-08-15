@@ -1,9 +1,14 @@
+"""
+Файл аналізатор для сервісу 1
+"""
+
 import json
 import os
 
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_ollama import OllamaLLM
 
+# Шлях до файлів(у нашому випадку json)
 FILE1_PATH = 'FILE1.json'
 FILE2_PATH = 'FILE2.json'
 
@@ -30,6 +35,7 @@ Identified Changes:
 """
 
 
+# Функція, яка використовується для завантаження json-файлу
 def load_file(path):
     """Завантаження контексту з файлу."""
     if os.path.exists(path):
@@ -43,7 +49,8 @@ prompt = ChatPromptTemplate.from_template(template)
 chain = prompt | model
 
 
-def translate_and_generate_response() -> str:
+# Сама функція аналізу файлів і повернення потрібного результату
+def analize() -> str:
     file_1 = load_file(FILE1_PATH)
     print("Successfully uploaded file1")
     file_2 = load_file(FILE2_PATH)
@@ -59,9 +66,11 @@ def translate_and_generate_response() -> str:
     return result
 
 
-resulting = translate_and_generate_response()
+resulting = analize()
 print(resulting)
 
+
+"""Це є вхідні дані, які подавалися"""
 """
 Tax Policy Act 2023
 
